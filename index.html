@@ -1,0 +1,123 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <p id="balance"></p>
+
+    <input type="text" id="amount">
+
+    <button id="deposit">Deposit</button>
+    <button id="withdraw">Withdraw</button>
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script>
+        var contract;
+   
+        $(document).ready(function() {     
+            window.ethereum.enable();
+
+            web3 = new Web3(web3.currentProvider);
+            var addr = "0x4A69EE17C8b0eBCf4e371E6555dc990D3E70Fc71"; //contract addr
+            var abi = [
+                {
+                    "constant": false,
+                    "inputs": [
+                        {
+                            "name": "amt",
+                            "type": "int256"
+                        }
+                    ],
+                    "name": "deposit",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "constant": false,
+                    "inputs": [
+                        {
+                            "name": "amt",
+                            "type": "int256"
+                        }
+                    ],
+                    "name": "withdraw",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "constructor"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "getBal",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "int256"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                }
+            ];
+            contract = new web3.eth.Contract(abi,addr);
+
+            console.log("call");
+            contract.methods.getBal().call().then(function(bal){
+                console.log(bal);
+                $('#balance').html("<p>Current Balance :"+bal+"</p>");
+            })
+            $('#deposit').click(function(){
+                var amt=0;
+                amt=parseInt($('#amount').val());
+                alert(amt);
+                web3.eth.getAccounts().then(function(accounts){
+                    var acc=accounts[0];
+                    console.log(acc);
+                    return contract.methods.deposit(amt).send({from: accounts[0]});
+                }).then(function(transaction){
+                    console.log(transaction);
+                }).catch(function(transaction){
+                    console.log(transaction);
+                })
+            })
+            
+            $('#withdraw').click(function(){
+                var amt=0;
+                amt=parseInt($('#amount').val());
+                alert(amt);
+                web3.eth.getAccounts().then(function(accounts){
+                    var acc=accounts[0];
+                    console.log(acc);
+                    return contract.methods.withdraw(amt).send({from: accounts[0]});
+                }).then(function(transaction){
+                    console.log(transaction);
+                }).catch(function(transaction){
+                    console.log(transaction);
+                })
+            })
+            
+
+            console.log("done");
+
+        })
+    </script>
+</body>
+
+</html>
