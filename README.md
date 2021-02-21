@@ -14,6 +14,7 @@ This is a test demo of bank system in a localhost injected web3 ,private blockch
  * Login/Register
  * Switch to Test Network
  * Ask for free Test ethers using deposit section (create a post with your twitter and copy url to get test ethers)   
+ * <img src="/4.png" alt="metamask" width="750" height="500">
 
 ## Remix Ethereum 
 
@@ -22,7 +23,7 @@ This is a test demo of bank system in a localhost injected web3 ,private blockch
  * now click deploy using Injcted web3 option in run section
  * You can test your code is working or not using compile and run section in remix
  * You can check your contract addr in deployed contracts option
-
+ * <img src="/3.png" alt="metamask" width="750" height="500">
 
 
 ## Website localhost
@@ -33,4 +34,5 @@ This is a test demo of bank system in a localhost injected web3 ,private blockch
  * http-server
  * Now replace your contract addr in addr variable 
  * RUN CODE X)
-
+ * <img src="/2.png" alt="metamask" width="450" height="250">
+ * <img src="/1.png" alt="metamask" width="800" height="500">
