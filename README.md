@@ -23,7 +23,7 @@ This is a test demo of bank system in a localhost injected web3 ,private blockch
  * now click deploy using Injcted web3 option in run section
  * You can test your code is working or not using compile and run section in remix
  * You can check your contract addr in deployed contracts option
- * <img src="/3.jpeg" alt="metamask" width="750" height="500">
+ * <img src="/3.jpeg" alt="metamask" width="850" height="500">
 
 
 ## Website localhost
