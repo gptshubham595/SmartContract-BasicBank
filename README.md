@@ -1,5 +1,11 @@
 # SmartContract-BasicBank
 
+## INTRODUCTION
+
+This is a test demo of bank system in a localhost injected web3 ,private blockchain, ethereum based smartcontract web application.
+
+
+
 ### Steps:
 
 ## Metamask Extension
@@ -9,7 +15,7 @@
  * Switch to Test Network
  * Ask for free Test ethers using deposit section (create a post with your twitter and copy url to get test ethers)   
 
-## Remixe Ethereum 
+## Remix Ethereum 
 
  * open Remix ethereum website(https://remix.ethereum.org/)
  * delete all and create a new file named Bank.sol ( copy my code :D )
